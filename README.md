@@ -6,3 +6,12 @@ Q2: Is time/bytes constant or does it vary? How does it vary? (transfer rate/ban
 
 Q3: On this campus, there are X IP addresses that consume the most bytes ...
 
+
+TO DO:
+
+1. Write/debug MapReduce programs. Aim to have this done by February 12th? [Gives us 1 week to write/debug programs]
+
+2. Write team report using descriptive statistics to characterize data and answer the questions.  
+Aim to have this done by February 16th? [Gives us 1 week to write/edit report]
+
+Assignment due on February 19th
