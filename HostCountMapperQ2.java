@@ -15,20 +15,10 @@ public class HostCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String line = value.toString();
         String[] tokens = line.split("\\s");
-        String IPaddr1 = new String();
-        String IPaddr2 = new String();
-        int last_dot;
-        // get the two IP address.port fields
-        IPaddr1 = tokens[2];
-        IPaddr2 = tokens[4];
-        // eliminate the port part
-        last_dot = IPaddr1.lastIndexOf('.');
-        IPaddr1 = IPaddr1.substring(0, last_dot);
-        last_dot = IPaddr2.lastIndexOf('.');
-        IPaddr2 = IPaddr2.substring(0, last_dot);
-        // output the key, value pairs where the key is an
-        // IP address 4-tuple and the value is 1 (count)
-        context.write(new Text(IPaddr1), new IntWritable(1));
-        context.write(new Text(IPaddr2), new IntWritable(1));
+        String bytes = new String();
+        bytes = tokens[8]; //Get byte count
+        String timestamp = new String();
+        timestamp = tokens[2]; //Get timestamp
+        context.write(new Text(timestamp), new Text(bytes));
     }
 }
