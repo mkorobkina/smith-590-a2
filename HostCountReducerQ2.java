@@ -15,25 +15,32 @@ public class HostCountReducer extends Reducer<Text, Text, LongWritable, LongWrit
         long totalBytes = 0;
         int i = 0;
         for (Text value : values) { //Is this iteration correct? Not sure
+            String val = value.getValue();
+            convertedVal = Long.parseLong(val);
+            
             if (i == 0) {
-             max = value; //To start off, set the first value as the max
-             min = value; //Set the first value as the min as well
+             max = convertedVal; //To start off, set the first value as the max
+             min = convertedVal; //Set the first value as the min as well
              i++;
             }
-            if (value > max) {
-                max = value;
+            
+            if (convertedVal > max) {
+                max = convertedVal;
             }
-            if (value < min) {
-                min = value;
+            
+            if (convertedVal < min) {
+                min = convertedVal;
             }
+            
         }
         
         for (Text key : keys) { //Is this iteration correct?
-            long bytes = Long.parseLong(key);
+            String stringKey = key.getValue();
+            long bytes = Long.parseLong(stringKey);
             totalBytes += bytes; //Sum all the bytes
         }
         
         long elapsedTime = max - min;
-        context.write(new LongWritable(totalBytes), new LongWritable(elapsedTime);
+        context.write(new LongWritable(totalBytes), new LongWritable(elapsedTime));
     }
 }
