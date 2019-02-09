@@ -12,11 +12,31 @@ public class HostCountReducer extends Reducer<Text, IntWritable, Text, LongWrita
     @Override
     public void reduce(Text key, Iterable<IntWritable> values, Context context)
             throws IOException, InterruptedException {
-        long count = 0;
-        // iterate through all the values (count == 1) with a common key
-        for (IntWritable value : values) {
-            count = count + value.get();
-        }
-        context.write(key, new LongWritable(count));
+        long max;
+        long min;
+        long totalBytes = 0;
+        int i = 0;
+//         for (Text value : values) {
+//             if (i == 0) {
+//              max = value; //To start off, set the first value as the max
+//              min = value; //Set the first value as the min as well
+//              i++;
+//             }
+//             if (value > max) {
+//                 max = value;
+//             }
+//             if (value < min) {
+//                 min = value;
+//             }
+      
+//         }
+        
+//         for (Text key : keys) {
+//             long bytes = Long.parseLong(key);
+//             totalBytes += bytes;
+//         }
+        
+        
+        context.write(newLongWritable(totalBytes), new LongWritable();
     }
 }
