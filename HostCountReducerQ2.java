@@ -34,6 +34,6 @@ public class HostCountReducer extends Reducer<Text, IntWritable, Text, LongWrita
         }
         
         long elapsedTime = max - min;
-        context.write(newLongWritable(totalBytes), new LongWritable(elapsedTime);
+        context.write(new LongWritable(totalBytes), new LongWritable(elapsedTime);
     }
 }
