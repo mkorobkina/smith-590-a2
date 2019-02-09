@@ -6,7 +6,7 @@ import org.apache.hadoop.io.*;
 import org.apache.hadoop.util.*;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class HostCountReducer extends Reducer<Text, IntWritable, Text, LongWritable> {
+public class HostCountReducer extends Reducer<Text, Text, LongWritable, LongWritable> {
     @Override
     public void reduce(Text key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
