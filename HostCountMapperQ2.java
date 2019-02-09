@@ -10,9 +10,9 @@ import org.apache.hadoop.io.*;
 import org.apache.hadoop.util.*;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class HostCountMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class HostCountMapper extends Mapper<LongWritable, LongWritable, Text, Text> {
     @Override
-    public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+    public void map(Text key, Text value, Context context) throws IOException, InterruptedException {
         String line = value.toString();
         String[] tokens = line.split("\\s");
         String bytes = new String();
