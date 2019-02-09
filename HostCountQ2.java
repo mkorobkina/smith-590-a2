@@ -26,8 +26,8 @@ public class HostCount {
         job.setReducerClass(HostCountReducer.class);
         // set the format of the keys and values
         job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(IntWritable.class);
-        job.setOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(Text.class);
+        job.setOutputKeyClass(LongWritable.class);
         job.setOutputValueClass(LongWritable.class);
         // submit the job and wait for its completion
         System.exit(job.waitForCompletion(true) ? 0 : 1);
