@@ -12,6 +12,15 @@ TO DO:
 1. Write/debug MapReduce programs. Aim to have this done by February 12th? [Gives us 1 week to write/debug programs]
 
 2. Write team report using descriptive statistics to characterize data and answer the questions.  
-Aim to have this done by February 16th? [Gives us 1 week to write/edit report]
+Aim to have this done by February 16th? [Gives us 3 days to write/edit report]
 
 Assignment due on February 19th
+
+
+
+Run ./hadoop_java.sh HostCount
+
+Run ./hadoop_mapred.sh HostCount /user/clu123/input/ADU-only_2009-04-01_anon_100K /home/clu123
+
+hadoop fs -ls /path/here
+hadoop fs -cat /path/here
