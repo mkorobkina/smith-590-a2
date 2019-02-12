@@ -16,7 +16,7 @@ public class HostCountReducer extends Reducer<Text, Text, LongWritable, LongWrit
         int i = 0;
         //long bytes = 10;
         String strKey = key.toString();
-        long bytes = Long.parseLong(strKey);
+        long bytes = Long.valueOf(strKey).longValue();
         
         //for (Text value : values) {
          //   String val = value.toString();
