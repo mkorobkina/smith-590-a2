@@ -45,6 +45,6 @@ public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, Double
 //             long bytes = Long.parseLong(stringKey);
 //             totalBytes += bytes; //Sum all the bytes
 //         }
-        context.write(new DoubleWritable(bytes), new LongWritable(timeStamp));
+        context.write(new DoubleWritable(bytes), new DoubleWritable(timeStamp));
     }
 }
