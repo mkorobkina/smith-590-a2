@@ -24,17 +24,15 @@ public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, Double
         if (i == 0) {
             max = timeStamp; //To start off, set the first value as the max
             min = timeStamp; //Set the first value as the min as well
-            i++;
+            i = 1;
         }
-            
-        if (timeStamp > max) {
-            max = timeStamp;
+        if (i != 0) {
+            if (timeStamp > max) {
+                max = timeStamp;
+            } if (timeStamp < min) {
+                min = timeStamp;
+            }
         }
-        
-        if (timeStamp < min) {
-            min = timeStamp;
-         }
-            
         }
                    
 //         for (Text key : keys) { //Is this iteration correct? No -- I think this can be done more easily in the command line?
@@ -42,6 +40,8 @@ public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, Double
 //             long bytes = Long.parseLong(stringKey);
 //             totalBytes += bytes; //Sum all the bytes
 //         }
+        
+        
         double elapsedTime = max - min;
         
         context.write(new DoubleWritable(bytes), new DoubleWritable(elapsedTime));
