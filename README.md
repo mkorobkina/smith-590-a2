@@ -20,7 +20,7 @@ Assignment due on February 19th
 
 Run ./hadoop_java.sh HostCount
 
-Run ./hadoop_mapred.sh HostCount /user/clu123/input/ADU-only_2009-04-01_anon_100K /home/clu123
+Run ./hadoop_mapred.sh HostCount /user/clu123/input/ADU-only_2009-04-01_anon_100K /user/clu123/output
 
 hadoop fs -ls /path/here
 hadoop fs -cat /path/here
