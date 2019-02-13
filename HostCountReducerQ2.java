@@ -6,7 +6,7 @@ import org.apache.hadoop.io.*;
 import org.apache.hadoop.util.*;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, LongWritable> {
+public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, DoubleWritable> {
     @Override
     public void reduce(Text key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
@@ -14,15 +14,14 @@ public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, LongWr
         long min = -1;
         long totalBytes = 0;
         int i = 0;
-        //long bytes = 10;
         String strKey = key.toString();
-        
-        //lDurationMillis = (long)Double.parseDouble("30000.1");
         double bytes = Double.parseDouble(strKey);
                 
-        //for (Text value : values) {
-         //   String val = value.toString();
-          //  long convertedVal = Long.parseLong(val);
+        for (Text value : values) {
+        String val = value.toString();
+        double timeStamp = Double.parseDouble(val);
+        }
+
             
            // if (i == 0) {
              //   max = convertedVal; //To start off, set the first value as the max
@@ -45,11 +44,6 @@ public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, LongWr
 //             long bytes = Long.parseLong(stringKey);
 //             totalBytes += bytes; //Sum all the bytes
 //         }
-
-        //long elapsedTime = max - min;
-        long time = 10;
-        context.write(new DoubleWritable(bytes), new LongWritable(time));
-
-        //context.write(new LongWritable(bytes), new LongWritable(elapsedTime));
+        context.write(new DoubleWritable(bytes), new DoubleWritable(timeStamp));
     }
 }
