@@ -6,7 +6,7 @@ import org.apache.hadoop.io.*;
 import org.apache.hadoop.util.*;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, DoubleWritable> {
+public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, LongWritable> {
     @Override
     public void reduce(Text key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
@@ -16,11 +16,11 @@ public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, Double
         int i = 0;
         String strKey = key.toString();
         double bytes = Double.parseDouble(strKey);
-        double timeStamp = 0;
+        long timeStamp = 0;
                 
         for (Text value : values) {
         String val = value.toString();
-        timeStamp = Double.parseDouble(val);
+        timeStamp = Long.parseLong(val);
         }
 
             
@@ -45,6 +45,6 @@ public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, Double
 //             long bytes = Long.parseLong(stringKey);
 //             totalBytes += bytes; //Sum all the bytes
 //         }
-        context.write(new DoubleWritable(bytes), new DoubleWritable(timeStamp));
+        context.write(new DoubleWritable(bytes), new LongWritable(timeStamp));
     }
 }
