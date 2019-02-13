@@ -27,7 +27,7 @@ public class HostCount {
         // set the format of the keys and values
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(Text.class);
-        job.setOutputKeyClass(LongWritable.class);
+        job.setOutputKeyClass(DoubleWritable.class);
         job.setOutputValueClass(LongWritable.class);
         // submit the job and wait for its completion
         System.exit(job.waitForCompletion(true) ? 0 : 1);
