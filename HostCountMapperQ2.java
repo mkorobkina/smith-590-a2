@@ -22,7 +22,7 @@ public class HostCountMapper extends Mapper<LongWritable, Text, Text, Text> {
             bytes = "0";
         }
         String timestamp = new String();
-        timestamp = tokens[2]; //Get timestamp
+        timestamp = tokens[1]; //Get timestamp
         context.write(new Text(bytes), new Text(timestamp));
     }
 }
