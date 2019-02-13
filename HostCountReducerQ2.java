@@ -16,10 +16,11 @@ public class HostCountReducer extends Reducer<Text, Text, DoubleWritable, Double
         int i = 0;
         String strKey = key.toString();
         double bytes = Double.parseDouble(strKey);
+        double timeStamp;
                 
         for (Text value : values) {
         String val = value.toString();
-        double timeStamp = Double.parseDouble(val);
+        timeStamp = Double.parseDouble(val);
         }
 
             
